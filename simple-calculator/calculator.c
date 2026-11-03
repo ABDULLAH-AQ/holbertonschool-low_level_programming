@@ -1,5 +1,11 @@
 #include <stdio.h>
 
+/**
+ * menu - Displays the menu and reads the user's choice
+ *
+ * Return: The number the user entered
+ */
+
 int menu(void)
 {
     int choice;
@@ -15,9 +21,10 @@ int menu(void)
 
     return choice;
 }
+
 int main(void)
 {
-	    int choice;
+    int choice;
     double num1, num2, result;
 
     while (1)
@@ -51,7 +58,7 @@ int main(void)
 		if (num2 != 0)
 		{
 		    result = num1 / num2;
-		    printf("Result: %.2lf\n", result);
+		    printf("Result: %.2f\n", result);
 		}
 		else
 		{
