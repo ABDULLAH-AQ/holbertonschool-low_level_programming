@@ -44,15 +44,15 @@ int main(void)
 	{
 	    case 1:
 		result = num1 + num2;
-		printf("Result: %.2lf\n", result);
+		printf("Result: %.2f\n", result);
 		break;
 	    case 2:
 		result = num1 - num2;
-		printf("Result: %.2lf\n", result);
+		printf("Result: %.2f\n", result);
 		break;
 	    case 3:
 		result = num1 * num2;
-		printf("Result: %.2lf\n", result);
+		printf("Result: %.2f\n", result);
 		break;
 	    case 4:
 		if (num2 != 0)
