@@ -37,8 +37,10 @@ int main(void)
 	    break;
 	}
 
-	printf("Enter two numbers: ");
-	scanf("%lf %lf", &num1, &num2);
+	printf("A: ");
+	scanf("%lf", &num1);
+	printf("B: ");
+	scanf("%lf", &num2);
 
 	switch (choice)
 	{
@@ -66,7 +68,7 @@ int main(void)
 		}
 		break;
 	    default:
-		printf("Invalid choice. Please try again.\n");
+		printf("Invalid choice.\n");
 	}
     }
 
