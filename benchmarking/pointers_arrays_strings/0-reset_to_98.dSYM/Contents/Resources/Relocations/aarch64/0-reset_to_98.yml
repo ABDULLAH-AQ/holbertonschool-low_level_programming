@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/abdullah/HolbertonSchool/holbertonschool-docker/holbertonschool-low_level_programming/benchmarking/pointers_arrays_strings/0-reset_to_98'
+relocations:     []
+...
