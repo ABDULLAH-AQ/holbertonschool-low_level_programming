@@ -1,6 +1,5 @@
 #include "dog.h"
 #include <stdlib.h>
-#include <string.h>
 
 /**
  * _strdup - duplicates a string
@@ -8,20 +7,25 @@
  *
  * Return: pointer to the duplicated string (Success), NULL (Failure)
  */
-char *_strdup(const char *str)
+char *_strdup(char *str)
 {
 	char *dup;
-	size_t len;
+	unsigned int len, i;
 
 	if (str == NULL)
 		return (NULL);
 
-	len = strlen(str) + 1;
-	dup = malloc(len);
+	for (len = 0; str[len] != '\0'; len++)
+		;
+
+	dup = malloc(len + 1);
 	if (dup == NULL)
 		return (NULL);
 
-	return (memcpy(dup, str, len));
+	for (i = 0; i <= len; i++)
+		dup[i] = str[i];
+
+	return (dup);
 }
 
 /**
@@ -34,20 +38,20 @@ char *_strdup(const char *str)
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *new_dog;
+	dog_t *dog;
 	char *new_name, *new_owner;
 
 	if (name == NULL || owner == NULL)
 		return (NULL);
 
-	new_dog = malloc(sizeof(dog_t));
-	if (new_dog == NULL)
+	dog = malloc(sizeof(dog_t));
+	if (dog == NULL)
 		return (NULL);
 
 	new_name = _strdup(name);
 	if (new_name == NULL)
 	{
-		free(new_dog);
+		free(dog);
 		return (NULL);
 	}
 
@@ -55,13 +59,13 @@ dog_t *new_dog(char *name, float age, char *owner)
 	if (new_owner == NULL)
 	{
 		free(new_name);
-		free(new_dog);
+		free(dog);
 		return (NULL);
 	}
 
-	new_dog->name = new_name;
-	new_dog->age = age;
-	new_dog->owner = new_owner;
+	dog->name = new_name;
+	dog->age = age;
+	dog->owner = new_owner;
 
-	return (new_dog);
+	return (dog);
 }
