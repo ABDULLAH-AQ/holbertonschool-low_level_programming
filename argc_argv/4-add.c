@@ -2,27 +2,49 @@
 #include <stdlib.h>
 
 /**
- * main - adds two numbers
+ * is_number - checks that a string contains only digits
+ * @s: string to check
+ *
+ * Return: 1 if s is made only of digits, 0 otherwise
+ */
+int is_number(char *s)
+{
+	int i;
+
+	if (s[0] == '\0')
+		return (0);
+
+	for (i = 0; s[i] != '\0'; i++)
+	{
+		if (s[i] < '0' || s[i] > '9')
+			return (0);
+	}
+
+	return (1);
+}
+
+/**
+ * main - adds positive numbers
  * @argc: number of arguments
  * @argv: array of arguments
  *
- * Return: Always 0 (Success)
+ * Return: 0 on success, 1 if any argument is not a positive number
  */
 int main(int argc, char *argv[])
 {
-	int num1, num2, result;
+	int i, sum = 0;
 
-	if (argc != 3)
+	for (i = 1; i < argc; i++)
 	{
-		printf("Error\n");
-		return (1);
+		if (!is_number(argv[i]))
+		{
+			printf("Error\n");
+			return (1);
+		}
+		sum += atoi(argv[i]);
 	}
 
-	num1 = atoi(argv[1]);
-	num2 = atoi(argv[2]);
-	result = num1 + num2;
-
-	printf("%d\n", result);
+	printf("%d\n", sum);
 
 	return (0);
 }
